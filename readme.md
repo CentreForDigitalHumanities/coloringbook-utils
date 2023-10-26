@@ -2,7 +2,7 @@ This is a command-line interface to use for analyzing coloringbook data.
 
 ## Installation
 
-To install, use [pipx]()
+To install, use [pipx](https://pypa.github.io/pipx/installation/)
 
 `pipx install git+https://github.com/CentreForDigitalHumanities/coloringbook-utils`
 
