@@ -99,5 +99,10 @@ def build(cbdata, cbmatch, participants, output, any_color):
     out_df = build_output(cb_with_participant, any_color)
     out_df.write_csv(output)
 
-if __name__ == '__main__':
+
+def main():
     cli()
+
+
+if __name__ == '__main__':
+    main()
