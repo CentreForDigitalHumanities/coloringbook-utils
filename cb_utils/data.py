@@ -149,7 +149,15 @@ def compute_chosen_word(group_df: pl.DataFrame) -> pl.DataFrame:
         pl.lit("skipped").alias("chosen_word")
     )
 
+def build_subject_page_records(df: pl.DataFrame) -> pl.DataFrame:
+    """Ensure each page/survey combination has a record for each subject"""
+    survey_page_df = df.select(["survey", "page"]).unique(["survey", "page"])
+    survey_subject_df = df.select(["survey", "subject"]).unique(["survey", "subject"])
+    survey_page_subject_df = survey_subject_df.join(survey_page_df, on=["survey"], how="left")
+    return survey_page_subject_df.join(df, on=["survey", "page", "subject"], how="left")
+
 def build_output(df: pl.DataFrame, any_color = False) -> pl.DataFrame:
+    df = build_subject_page_records(df)
     df = (
         df
         .with_columns(
