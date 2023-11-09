@@ -10,6 +10,7 @@ packages = [{include = "cb_utils"}]
 python = "^3.10"
 polars = "^0.19.11"
 click = "^8.1.7"
+toml = "^0.10.2"
 
 
 [tool.poetry.group.dev.dependencies]

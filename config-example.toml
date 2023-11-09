@@ -1,0 +1,6 @@
+expectations = "data/expectations.csv"
+matching = "data/matching.csv"
+participants = "data/participants.csv"
+responses = "data/responses.csv"
+any_color = false
+output_file_prefix = ".scribble/output"

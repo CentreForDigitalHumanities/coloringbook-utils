@@ -13,28 +13,25 @@ If this executes correctly, then installation was successful.
 
 ## Usage
 
-This tool offers 3 commands:
+This tool offers 2 commands:
 
-- `cb-utils validate`
-- `cb-utils summary`
+- `cb-utils summarize`
 - `cb-utils build`
 
 Below are explanations of each.
+Every command must be prefixed with a reference ot a configuration file.
+The configuration file is written in `toml` and looks like so:
 
-### Validate
-
-This runs a number of checks on the data you have. 
-You can repair data accordingly in your input sheets. 
-To use the command, you must also specify the input files.
-An example of how this might look:
-
-```bash
-cb-utils validate --cbdata='coloringbook.csv' --cbmatch='cb_matching.csv' --participants='participants.csv'
+```toml
+expectations = "data/expectations.csv"
+matching = "data/matching.csv"
+participants = "data/participants.csv"
+responses = "data/responses.csv"
+any_color = false
+output_file_prefix = ".data/output"
 ```
 
-![validate gif](demo_gifs/validate_demo.gif)
-
-### Summary
+### Summarize
 
 You can use summary as a sanity check to get some quick stats about the data.
 The command will show you three tables: survey summary, page summary, and page guess summary.
@@ -42,29 +39,32 @@ The command will show you three tables: survey summary, page summary, and page g
 An example of the usage is:
 
 ```bash
-cb-utils summary --cbdata='coloringbook.csv' --cbmatch='cb_matching.csv' --participants='participants.csv'
+cb-utils --config config.toml summarize -t results
 ```
 
-![summary gif](demo_gifs/summary_demo.gif)
+or 
+
+```bash
+cb-utils --config config.toml summarize -t survey
+```
+
+
+This will output data about guesses and the survey respectively.
+You can append a `--write` flag to store this data in a file:
+
+```bash
+cb-utils --config config.toml summarize -t results --write
+```
 
 ### Build
 
 With build you can synthesize the data into a single csv.
-You can provide the `--any-color` flag to convert category to 0s and 1s as per specification based on color. 
 
 You can invoke the command as so:
 
 ```bash
-cb-utils build --cbdata='coloringbook.csv' --cbmatch='cb_matching.csv' --participants='participants.csv' --out='output.csv'
+cb-utils --config config.toml build
 ```
-
-Or with the `any color` flag:
-
-```bash
-cb-utils build --cbdata='coloringbook.csv' --cbmatch='cb_matching.csv' --participants='participants.csv' --out='output.csv' --any-color
-```
-
-![build gif](demo_gifs/build_demo.gif)
 
 ## Troubleshooting
 
