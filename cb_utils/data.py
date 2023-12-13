@@ -37,7 +37,7 @@ def load_participants(path: Path) -> pl.DataFrame:
     }
     return (
         pl
-        .read_csv(path, infer_schema_length=20000)
+        .read_csv(path, separator=";", infer_schema_length=20000)
         .rename(column_mapping)
         .with_columns(
             pl.col("name").str.strip().str.to_uppercase()
