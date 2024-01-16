@@ -59,7 +59,7 @@ def load_expectations(path: Path) -> pl.DataFrame:
     """Columns: survey,page,expected word,,"""
     return (
         pl
-        .read_csv(path, separator=",", infer_schema_length=20000, truncate_ragged_lines=True)
+        .read_csv(path, separator=";", infer_schema_length=20000, truncate_ragged_lines=True)
     )
 
 @dataclass
