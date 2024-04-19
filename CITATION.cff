@@ -13,5 +13,18 @@ authors:
     email: d.rasiukevicius@uu.nl
     affiliation: Utrecht University
     orcid: 'https://orcid.org/0009-0006-3103-0108'
-abstract: Preparing coloringbook data for analysis
-
+  - given-names: Alexander
+    family-names: Vertegaal
+    email: a.j.j.vertegaal@uu.nl
+    affiliation: Utrecht University
+    orcid: 'https://orcid.org/0000-0002-5182-6801'
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.10997472
+repository-code: >-
+  https://github.com/CentreForDigitalHumanities/coloringbook-utils
+abstract: Preparing Coloring Book data for analysis
+license: GPL-3.0
+commit: 728fea383abc9247a85661cf0826055f4b8f4596
+version: 1.0.0
+date-released: '2024-04-19'
